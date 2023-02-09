@@ -14,7 +14,14 @@ class Carrinho:
     self.livros = []
 
   def adicionar_livro(self, livro):
-      self.livros.append(livro)
-      return self.livros
-      
-    
+    self.livros.append(livro)
+  
+  def remover_livro(self, livro):
+    if livro in self.livros:
+      self.livros.remove(livro)
+  
+  def limpar(self):
+    self.livros = []
+  
+  def valor_total(self):
+    return sum(map(lambda l: l['preco'], self.livros))
